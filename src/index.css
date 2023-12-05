@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --primary-color: #002349;
+  --primary-opacity: #002349e8;
+  --primary-color-2: #55a7ff;
+  --secondary-color: #2ecc71;
+  --accent-color: #f9b872;
+
+  --bg-color: #e4f4f8;
+  --bg-secondary: rgb(247, 247, 247);
+  --text-primary: #333333;
+  --text-secondary: #dddddd;
+  --black: black;
+  --white: white;
+  --border-color: #c1bdb5;
+  --border-hover: #050505;
+
+  --success-color: #4caf50;
+  --info-color: #3498db;
+  --error-color: #e74c3c;
+}
+
+.dark-theme {
+  --bg-color: #3f3f3f;
+  --bg-secondary: #575757;
+  --primary-color: #382bf0;
+  --text-primary: #ffffff;
+  --border-color: #807e7a;
+  --border-hover: rgb(255, 255, 255);
+}
+
+@layer base {
+  *::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+  input::-webkit-outer- spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input:focus {
+    outline: solid black 1px;
+  }
+  /* listed 1 by 1, react-icon color get overridden */
+  p,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  li,
+  b,
+  em,
+  button,
+  div,
+  label,
+  option {
+    @apply text-sm md:text-base;
+    color: var(--text-primary);
+  }
+
+  header * {
+    color: var(--text-primary);
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply font-extrabold text-2xl md:text-4xl lg:text-5xl;
+  }
+  h2 {
+    @apply font-bold text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h5 {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  h6 {
+    @apply text-base;
+  }
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .title-card {
+    transition: all 0.25s ease-in-out;
+  }
+  .book-card:hover .title-card {
+    transform: translateY(-50px);
+  }
+
+  .show-border {
+    @apply border-4 border-solid border-red-500;
+  }
+  .primary-btn {
+    transition: all 0.25s ease-in-out;
+    @apply px-6 py-2 text-textSecondary bg-primary border-[1px] border-solid border-primary;
+  }
+  .primary-btn:hover {
+    @apply bg-primaryOpacity tracking-wider;
+  }
+  .secondary-btn {
+    transition: all 0.15s ease-in-out, letter-spacing 0.25s ease-in-out;
+    @apply px-6 py-2 border-border  border-solid border-[1px];
+  }
+  .secondary-btn:hover {
+    @apply bg-primaryOpacity border-primary text-textSecondary  tracking-wider;
+  }
+  #page-links > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: solid var(--accent-color) 2px;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+  }
+  #page-links > a {
+    position: relative;
+    padding: 5px 3px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  #page-links > a:hover {
+    color: var(--accent-color);
+  }
+  #page-links > [aria-current="page"]::before {
+    transition: width 0.3s;
+    width: 100%;
+  }
+}
